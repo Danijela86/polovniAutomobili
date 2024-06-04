@@ -33,4 +33,19 @@ public Homepage selectBrand(String brandName) {
         clickOneElement(Locators.setYearInLocator(Integer.toString(yearTo)));
         return this;
     }
+    public Homepage SelectFuelType(String fuelType){
+        clickOneElement((Locators.fuelTypeMenu);
+        clickOneElement(Locators.setFuelType(fuelType));
+        return this;
+    }
+    public Homepage selectRegion (String region){
+        clickOneElement(Locators.regionMenu);
+        clickOneElement(Locators.setRegion(region));
+                return this;
+    }
+    public SearchResults search(){
+        clickOneElement(Locators.searchButton);
+        return  new SearchResults();
+    }
+
 }
