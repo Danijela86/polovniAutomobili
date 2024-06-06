@@ -32,7 +32,7 @@ public class Properties {
 
             driver =new ChromeDriver(options);
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
+            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(100));
 
             setDriver(driver);
 

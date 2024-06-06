@@ -12,7 +12,8 @@ public class Locators {
     public static String HEADER_SAMPLE_PAGE ="//h1[@id='sampleHeading']";
     public static String NEW_TAB_BUTTON ="// button[@id='tabButton']";
     public static String NEW_WINDOW_BUTTON ="// button[@id='windowButton']";
-    public static By brandSearchField = By.xpath("//div[@class='SumoSelect sumo_brand']//input");
+    public static By brandSearchField = By.xpath("//div[@class='SumoSelect sumo_brand open']//input");
+    public static By brandSearch = By.xpath("//div[@class='SumoSelect sumo_brand']");
     public static By setBrand(String brandName) {
         String brandSearchLocator = "//div[contains(@class, 'open')]//li//label[text()='****']";
         brandSearchLocator.replace("****", brandName);

@@ -9,7 +9,11 @@ public class Homepage extends BasePage {
 
 
     public Homepage openBrandMenu() {
-        clickOneElement(Locators.brandSearchField);
+        clickOneElement(Locators.brandSearch);
+        return this;
+    }
+    public Homepage openModelMenu() {
+        clickOneElement(Locators.modelSearchField);
         return this;
     }
 
@@ -28,13 +32,29 @@ public Homepage selectBrand(String brandName) {
         clickOneElement(Locators.setYearInLocator(Integer.toString(yearFrom)));
         return this;
     }
+    public Homepage openYearFromMenu(int yearFrom) {
+        clickOneElement(Locators.yearFromMenu);
+
+        return this;
+    }
+
+    public Homepage openYearToMenu(int yearFrom) {
+        clickOneElement(Locators.yearToMenu);
+
+        return this;
+    }
     public Homepage selectYearTo(int yearTo) {
         clickOneElement(Locators.yearToMenu);
         clickOneElement(Locators.setYearInLocator(Integer.toString(yearTo)));
         return this;
     }
     public Homepage SelectFuelType(String fuelType){
-        clickOneElement((Locators.fuelTypeMenu);
+        clickOneElement(Locators.fuelTypeMenu);
+        clickOneElement(Locators.setFuelType(fuelType));
+        return this;
+    }
+    public Homepage OpenFuelType(String fuelType){
+        clickOneElement(Locators.fuelTypeMenu);
         clickOneElement(Locators.setFuelType(fuelType));
         return this;
     }
@@ -42,6 +62,10 @@ public Homepage selectBrand(String brandName) {
         clickOneElement(Locators.regionMenu);
         clickOneElement(Locators.setRegion(region));
                 return this;
+    }
+    public Homepage openRegionMenu (){
+        clickOneElement(Locators.regionMenu);
+        return this;
     }
     public SearchResults search(){
         clickOneElement(Locators.searchButton);
