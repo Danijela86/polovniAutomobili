@@ -15,32 +15,42 @@ public class BasePage extends Properties {
 
 
     protected void clickOneElement(By locator) {
-        Properties.getDriver().findElement(locator).click();
+        waitForElementToBeVisible(locator);
+        getDriver().findElement(locator).click();
     }
 
     protected void waitForElementToBeVisible(By locator) {
-        WebDriverWait wait = new WebDriverWait(Properties.getDriver(), Duration.ofSeconds(7));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));}
-
-
-protected int getElementCount(String locator){
-    List<WebElement> webElements = getDriver().findElements(By.xpath(locator));
-            return webElements.size();
-
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(7));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+
 
     protected void typeText(String text, By locator) {
         waitForElementToBeVisible(locator);  //da se prvo saceka da postane vidljiv
-        Properties.getDriver().findElement(locator).sendKeys(text);}
+        Properties.getDriver().findElement(locator).sendKeys(text);
+    }
 
-        protected String getElementText(By locator) {
-            waitForElementToBeVisible(locator);
-            return Properties.getDriver().findElement(locator).getText();
-        }
+    protected String getElementText(By locator) {
+        waitForElementToBeVisible(locator);
+        return getDriver().findElement(locator).getText();
+    }
+
+    protected void switchToMainWindow() {
+        final String originalWindow = getDriver().getWindowHandle();
+    }
+
+    protected void switchToNewWindow() {
+        Set<String> handles = getDriver().getWindowHandles();
+        driver.switchTo().window((String) handles.toArray()[1]);
+    }
+
+    protected void switchToMainPageContent() {
+        getDriver().switchTo().defaultContent();
+    }
 
 
-    protected String getLocator(String locator, String arg) {
-        return locator.replace("%ARG%", arg);
+    protected String getLocator(String locator, String vrednost) {
+        return locator.replace("%ARG%", vrednost);
     }
 
     protected boolean isElementVisible(By locator) {
@@ -52,32 +62,25 @@ protected int getElementCount(String locator){
         }
         return isVisible;
     }
-private void scrollToElement (WebDriver driver, WebElement element) {
-    JavascriptExecutor js = (JavascriptExecutor) driver;
-    js.executeScript("arguments[0].scrollIntoView(true);", element);
-}
-private WebElement findElement (WebDriver driver, By by){
+
+    private void scrollToElement(WebDriver driver, WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    private WebElement findElement(WebDriver driver, By by) {
         return driver.findElement(by);
-}
-    public void scrollToElement(String locator){
-        scrollToElement(getDriver(), findElement(getDriver(), By.xpath(locator)));
     }
 
-    protected void switchToNewWindow() {
-        Set<String> handles = getDriver().getWindowHandles();
-    driver.switchTo().window((String) handles.toArray() [1]);
+    public void scrollToElement(By locator) {
+        scrollToElement(getDriver(), findElement(getDriver(), locator));
     }
-    protected void switchToMainWindow() {
-    final String originalWindow = getDriver().getWindowHandle();}
 
 
+    protected int getElementCount(String locator) {
+        List<WebElement> webElements = getDriver().findElements(By.xpath(locator));
+        return webElements.size();
 
-
-
-    protected void switchToMainPageContent() {
-        getDriver().switchTo().defaultContent();
     }
 }
-
-
 

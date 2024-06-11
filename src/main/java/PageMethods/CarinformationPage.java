@@ -28,10 +28,10 @@ public class CarinformationPage extends BasePage {
 
     public CarinformationPage verifyProductionYear(int yearFrom, int yearTo) {
         String realProductionYear = getElementText(Locators.getCarInformation("Godište"));
-        realProductionYear.replace(".", "");
+
         boolean isYearValid;
-        int prodactionYear = Integer.parseInt(realProductionYear, 10);
-        if (prodactionYear >= yearFrom && prodactionYear <= yearTo) {
+        int productionYear = Integer.parseInt(realProductionYear.replace(".",""), 10);
+        if (productionYear >= yearFrom && productionYear <= yearTo) {
             isYearValid = true;
         } else {
             isYearValid = false;
