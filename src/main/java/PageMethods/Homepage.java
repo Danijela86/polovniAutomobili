@@ -5,7 +5,7 @@ import Core.Locators;
 
 
 
-public class Homepage extends BasePage {
+ public class Homepage extends BasePage {
 
 
     public Homepage openBrandMenu() {

@@ -1,6 +1,9 @@
 package Core;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -9,7 +12,7 @@ import java.util.List;
 import java.util.Set;
 
 public class BasePage extends Properties {
- final String originalWindow = getDriver().getWindowHandle();
+
 
     protected void clickOneElement(By locator) {
         Properties.getDriver().findElement(locator).click();
