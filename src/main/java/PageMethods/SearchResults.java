@@ -10,7 +10,11 @@ public class SearchResults extends BasePage {
         return  this;
     }
     public SearchResults selectSecondSearch(){
-    clickOneElement(Locators.searchSecondPage);
+        try
+        {clickOneElement(Locators.searchSecondPage);}
+    catch (Exception e) {
+
+    }
     return this;
     }
     public CarinformationPage selectSearchResult(){

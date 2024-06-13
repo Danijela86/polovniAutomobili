@@ -22,7 +22,8 @@ public class Locators {
         String modelSearchLocator = "//div[contains(@class, 'open')]//li[normalize-space(text()='****')][not(contains(@class,'hidden'))]";
         return By.xpath(modelSearchLocator.replace("****", modelName));
     }
-    public static By modelSearchField = By.xpath("//div[@class='SumoSelect sumo_model']//input");
+    public static By modelSearchField = By.xpath("//div[@class='SumoSelect sumo_model open']//input");
+    public static By modelSearch = By.xpath("//div[@class='SumoSelect sumo_model']");
     public static By yearFromMenu = By.xpath("//div[@class='SumoSelect sumo_year_from open']");
     public static By yearToMenu = By.xpath("//div[@class='SumoSelect sumo_year_to']");
     public static By selectYear = By.xpath("//div[contains(@class, 'open')]//li//label[text()='**** god.']");
@@ -37,20 +38,20 @@ public class Locators {
 
     public static By setFuelType(String fuelType) {
         String fuelTypeLocator = "//div[@class='SumoSelect sumo_fuel open']//li//label[text()='****']";
-  fuelTypeLocator.replace("****", fuelType);
-  return  By.xpath(fuelTypeLocator);
+
+  return  By.xpath(fuelTypeLocator.replace("****", fuelType));
     }
     public static By setRegion(String region) {
         String regionLocator = "//div[contains(@class, 'open')]//li//label[text()='****']";
-        regionLocator.replace("****", region);
-        return By.xpath(regionLocator);
+
+        return By.xpath(regionLocator.replace("****", region));
     }
     public static By regionMenu = By.xpath("//div[@class='SumoSelect sumo_region']");
     public static By searchButton = By.xpath("//button[@name='submit_1']");
     public static By searchSecondPage = By.xpath("//a[text()='2'])[1]");
     public static By sortOrderMeny = By.xpath("(//div[@class='SumoSelect sumo_sortOrder'])[1]");
     public static By priceDesendingSort = By.xpath("//div[contains(@class, 'open')]//li//label[text()='ceni silazno']");
-    public static By secondSearchResult = By.xpath("(//article) [2]");
+    public static By secondSearchResult = By.xpath("(//article) [2]//a[@class = 'ga-title']");
     public static By getCarInformation = By.xpath("//div[text() ='Marka']//following-sibling::div");
     public static By setSortType(String sortType) {
         String sortTypeLocator = "//div[contains(@class, 'open')]//li//label[text()='****']";

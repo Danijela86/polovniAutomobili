@@ -18,7 +18,7 @@ public class Properties {
     }
 
     private static final String CHROME_DRIVER = "webdriver.chrome.driver";
-    private static final String CHROME_DRIVER_PATH = "src\\main\\resources\\chrome.driver.exe";
+    private static final String CHROME_DRIVER_PATH = "src\\main\\resources\\chromedriver.exe";
 
     public static void createDriver() {
         if (getDriver() == null) {

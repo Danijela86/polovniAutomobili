@@ -13,7 +13,7 @@ import Core.Locators;
         return this;
     }
     public Homepage openModelMenu() {
-        clickOneElement(Locators.modelSearchField);
+        clickOneElement(Locators.modelSearch);
         return this;
     }
 
